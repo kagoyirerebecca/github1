@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Github profile finder</title>
+</head>
+
+<body>
+    <div class="profile"></div>
+    <script>
+        function getProfile() {
+            var username = 'kagoyirerebecca';
+            var xhttp = new XMlHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readystate == 4 && xhttp.status == 200) {
+                    var user = xhttp.responseText;
+                    document.getElementById(profile).innerHTML = user;
+                }
+            }
+            xhttp.open('GET', 'https://api.github.com/users/' + username, true);
+            xhttp.send();
+        }
+        getProfile();
+    </script>
+</body>
+
+</html>
